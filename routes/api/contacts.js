@@ -1,6 +1,6 @@
 const express = require('express')
-
 const router = express.Router()
+const Joi = require("joi");
 
 const {
   listContacts,
@@ -9,7 +9,7 @@ const {
   addContact,
   updateContactById,
 } = require("../../models/contacts");
-const Joi = require('joi');
+
 
 const createError = require("../../helpers/createError");
 
