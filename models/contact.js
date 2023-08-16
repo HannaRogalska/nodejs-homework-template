@@ -25,14 +25,18 @@ const contactSchema = new Schema(
 
   { versionKey: false, timestamps: true }
 );
-
+const Contact = model("contact", contactSchema);
 
 
 const contactAddSchema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().required(),
+  name: Joi.string().alphanum().min(3).max(30).required(),
+  email: Joi.string()
+    .email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    })
+    .required(),
   phone: Joi.string().required(),
-  favorite: Joi.boolean(),
 });
 
 const updateFavoriteSchema = Joi.object({
@@ -43,7 +47,7 @@ const schemas = {
   contactAddSchema,
   updateFavoriteSchema,
 };
-const Contact = model("contact", contactSchema);
+
 
 
 module.exports = {
