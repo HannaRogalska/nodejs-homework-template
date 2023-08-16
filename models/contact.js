@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
 
+
 const contactSchema = new Schema(
   {
     name: {
@@ -29,13 +30,8 @@ const Contact = model("contact", contactSchema);
 
 
 const contactAddSchema = Joi.object({
-  name: Joi.string().alphanum().min(3).max(30).required(),
-  email: Joi.string()
-    .email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    })
-    .required(),
+  name: Joi.string().required(),
+  email: Joi.string().required(),
   phone: Joi.string().required(),
 });
 
