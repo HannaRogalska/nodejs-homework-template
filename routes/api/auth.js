@@ -32,7 +32,7 @@ router.patch(
   validateBody(schemas.subscriptionSchema),
   ctrlWrapper(ctrl.updtSubscription)
 );
-router.patch(
+router.post(
   "/avatars",
   authenticate,
   upload.single("avatar"),
