@@ -17,7 +17,7 @@ const updateAvatar = async (req, res) => {
     await fs.rename(tempUpload, resultUpload);
     const avatarURL = path.join("avatars", originalname);
 
-    Jimp.read(avatarURL)
+    jimp.read(avatarURL)
       .then((image) => {
         return image
           .resize(250, 250) // resize
