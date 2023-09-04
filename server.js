@@ -7,6 +7,8 @@ const PORT = process.env.PORT;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_USER = process.env.DB_USER;
 
+
+mongoose.set("strictQuery", true);
 mongoose
   .connect(
     `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.v7iootg.mongodb.net/?retryWrites=true&w=majority`
