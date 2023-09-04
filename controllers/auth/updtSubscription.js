@@ -6,7 +6,7 @@ const updtSubscription = async (req, res) => {
   const { subscription } = req.body;
 
   const result = await User.findByIdAndUpdate(
-    `{$id}`,
+    `${id}`,
     { subscription },
     { new: true }
   );
